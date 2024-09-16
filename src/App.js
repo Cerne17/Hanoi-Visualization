@@ -4,7 +4,7 @@ import Controls from './Controls';
 
 const App = () => {
   const [towers, setTowers] = useState([[], [], []]);
-  const [numDisks] = useState(3);
+  const [numDisks, setNumDisks] = useState(3);
   const [isSolving, setIsSolving] = useState(false);
 
   useEffect(() => {
@@ -55,7 +55,13 @@ const App = () => {
           <Tower key={index} disks={tower} />
         ))}
       </div>
-      <Controls handleSolve={handleSolve} handleReset={handleReset} isSolving={isSolving} />
+      <Controls 
+        handleSolve={handleSolve} 
+        handleReset={handleReset} 
+        isSolving={isSolving}
+        setNumDisks={setNumDisks}
+        numDisks={numDisks}
+      />
     </div>
   );
 };
