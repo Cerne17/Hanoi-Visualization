@@ -1,3 +1,8 @@
+.towers {
+  display: flex;
+  justify-content: space-around;
+}
+
 .tower {
   width: 100px;
   min-height: 200px;
@@ -10,9 +15,8 @@
 
 .disk {
   height: 20px;
-  background-color: #f00;
   margin: 2px 0;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease; /* Add transition for animation */
 }
 
 .controls {
