@@ -4,7 +4,7 @@ import Controls from './Controls';
 
 const App = () => {
   const [towers, setTowers] = useState([[], [], []]);
-  const [numDisks, setNumDisks] = useState(3);
+  const [numDisks] = useState(3);
   const [isSolving, setIsSolving] = useState(false);
 
   useEffect(() => {
@@ -15,10 +15,12 @@ const App = () => {
 
   const moveDisk = (from, to) => {
     // Implement the logic to move a disk from one tower to another
-    const newTowers = prevTowers.map((tower, index) => [...tower]);
-    const disk = newTowers[from].pop();
-    newTowers[to].push(disk);
-    setTowers(newTowers);
+    setTowers((prevTowers) => {
+      const newTowers = prevTowers.map((tower, index) => [...tower]);
+      const disk = newTowers[from].pop();
+      newTowers[to].push(disk);
+      return newTowers;
+    });
   };
 
   const solveHanoi = (n, source, target, auxiliary) => {
