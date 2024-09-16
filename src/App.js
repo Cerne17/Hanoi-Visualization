@@ -9,7 +9,7 @@ const App = () => {
 
   useEffect(() => {
     // Initialize the first tower with the disks
-    const initialTowers = [Array.from({ length: numDisks }, (_, index) => index + 1), [], []];
+    const initialTowers = [Array.from({ length: numDisks }, (_, index) => numDisks - index), [], []];
     setTowers(initialTowers);
   }, [numDisks]);
 
